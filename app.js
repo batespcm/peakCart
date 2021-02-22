@@ -2,12 +2,12 @@ const express = require('express')
 
 const app = express()
 
-const basketRouter = require('./routes/basketRouter.js')
+const apiRouter = require('./routes/apiRouter.js')
 
 
 app.use(express.json())
 
-app.use('/basket', basketRouter)
+app.use('/api', apiRouter)
 
 
 module.exports = app;
