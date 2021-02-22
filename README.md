@@ -1,7 +1,7 @@
 ## Lee Bates - Tech Test - Peak AI
 
 ## Peak Technical Test Installation Instructions
-
+- Run npm install to install dev dependencies
 
 ## Overview: 
 - Your task is to build a microservice that powers the shopping cart of an ecommerce
