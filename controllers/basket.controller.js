@@ -1,4 +1,4 @@
-const basket = require('../models/basket')
+// const basket = require('../models/basket')
 
 const addItemToBasket = (req, res, next) => {
     const { id } = req.body
