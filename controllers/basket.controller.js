@@ -1,25 +1,21 @@
-const Basket = require('../models/basket')
+const getBasket = async (req, res, next) => { }
 
-const addItemToBasket = (req, res, next) => {
-    const { productID } = req.body
-    Basket.addToBasket(productID).then(prod => {
-        console.log(prod, "prod in add to basket controller")
-        res.status(200).send({ prod })
-    })
+
+
+const addItemToBasket = async (req, res, next) => {
 
 
 }
 
-const removeItemFromBasket = (req, res) => {
+const removeItemFromBasket = async (req, res) => {
 
-    console.log("you have reached the removeItemFromBasket Controller")
 
 }
 
-const emptyBasket = (req, res) => {
+const emptyBasket = async (req, res) => {
 
-    console.log("you have reached the emptyBasket Controller")
-    return basket
+
 }
 
-module.exports = { addItemToBasket, removeItemFromBasket, emptyBasket }
+
+module.exports = { addItemToBasket, removeItemFromBasket, emptyBasket, getBasket }

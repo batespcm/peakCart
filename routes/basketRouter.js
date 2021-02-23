@@ -1,5 +1,5 @@
 const basketRouter = require('express').Router();
-const { addItemToBasket, removeItemFromBasket, emptyBasket } = require('../controllers/basket.controller')
+const { addItemToBasket, removeItemFromBasket, emptyBasket, getBasket } = require('../controllers/basket.controller')
 
 basketRouter
     .route('/')
