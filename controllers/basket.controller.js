@@ -1,7 +1,13 @@
-// const basket = require('../models/basket')
+const Basket = require('../models/basket')
 
 const addItemToBasket = (req, res, next) => {
-    const { id } = req.body
+    const { productID } = req.body
+    Basket.addToBasket(productID).then(prod => {
+        console.log(prod, "prod in add to basket controller")
+        res.status(200).send({ prod })
+    })
+
+
 }
 
 const removeItemFromBasket = (req, res) => {

@@ -5,10 +5,14 @@ const request = require('supertest');
 describe('', () => {
     it('', () => {
         return request(app)
-            .patch('/api/basket/')
+            .post('/api/basket/')
             .send({
-                id: 1
-            })
-    })
+                productID: 1
+            }).then(({ body }) => {
+                console.log(body, "body in test")
+                expect(body).toHaveProperty('errors');
+            });
+    });
 })
+
 
