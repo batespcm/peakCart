@@ -13,7 +13,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest tests/app.test.js",
+    "test": "jest --watchAll --runInBand",
     "start": "nodemon listen.js"
   },
   "repository": {
