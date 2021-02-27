@@ -7,8 +7,17 @@ const saveBasket = (sessionID, newBasket) => {
       return true
     }
   })
-
-  return updatedBasket[0].items
+  if (updatedBasket.length === 0) {
+    let updatedNewBasket = [
+      {
+        sessionID: sessionID,
+        items: [...newBasket]
+      }
+    ]
+    return updatedNewBasket[0].items
+  } else {
+    return updatedBasket[0].items
+  }
 }
 
 module.exports = saveBasket
