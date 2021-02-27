@@ -64,6 +64,31 @@ describe('<POST ITEM TO MICROSERVICE>', () => {
   })
 })
 
+describe('<DELETE ITEM TO MICROSERVICE>', () => {
+  it('Takes one item for an existing session and returns a basket without the removed item to the user', () => {
+    const item = {
+      sessionID: 1,
+      item: {
+        productID: 20,
+        productTitle: 'Item 2',
+        price: 11,
+        weight: 1,
+        deliveryDays: 4
+      }
+    }
+
+    return request(app)
+      .delete('/api/basket/removeitem')
+      .send(item)
+      .then(({ body }) => {
+        body.basket.forEach(item => {
+          expect(item).not.toHaveProperty('productID', 20)
+          expect(item).not.toHaveProperty('productTitle', 'item 2')
+        })
+      })
+  })
+})
+
 // tetst endpoints
 // test 404
 // test sending wrong thing - validation

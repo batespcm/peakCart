@@ -11,7 +11,18 @@ const addItemToBasket = (req, res, next) => {
     const { sessionID, item } = req.body
     const basket = fetchBasket(sessionID)
     const updatedBasket = addItem(basket, item)
+    const savedBasket = saveBasket(sessionID, updatedBasket)
+    res.send({ basket: savedBasket })
+  } catch (error) {
+    next(error)
+  }
+}
 
+const removeItemFromBasket = (req, res, next) => {
+  try {
+    const { sessionID, item } = req.body
+    const basket = fetchBasket(sessionID)
+    const updatedBasket = removeItem(basket, item)
     const savedBasket = saveBasket(sessionID, updatedBasket)
     res.send({ basket: savedBasket })
   } catch (error) {
@@ -20,8 +31,6 @@ const addItemToBasket = (req, res, next) => {
 }
 
 const getBasket = (req, res, next) => {}
-
-const removeItemFromBasket = (req, res, next) => {}
 
 const emptyBasket = async (req, res, next) => {}
 
