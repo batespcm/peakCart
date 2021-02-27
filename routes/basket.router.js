@@ -7,5 +7,6 @@ const {
 } = require('../controllers/basket.controller')
 
 basketRouter.route('/additem').post(addItemToBasket)
+basketRouter.route('/removeitem').delete(removeItemFromBasket)
 
 module.exports = basketRouter
