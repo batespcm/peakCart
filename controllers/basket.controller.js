@@ -1,30 +1,30 @@
 const {
-  fetchBasketFromDB,
-  saveToMockDB,
+  fetchBasket,
+  saveBasket,
   removeItem,
   addItem,
   clearBasket
-} = require('../utils/basketUtils')
+} = require('../utils/basket')
 
-const addItemToBasket = async (req, res, next) => {
-  // async / await not needed
+const addItemToBasket = (req, res, next) => {
   try {
-    const { sessionID, items } = req.body
-    const addedItem = items
-    const storedBasket = await fetchBasketFromDB(sessionID)
-    const newBasket = await addItem(storedBasket, addedItem)
-    // const checkoutBasket = await saveToMockDB(sessionID, newBasket)
-    res.send({ basket: newBasket })
+    const { sessionID, item } = req.body
+
+    const basket = fetchBasket(sessionID)
+    const updatedBasket = addItem(basket, item)
+    const savedBasket = saveBasket(sessionID, updatedBasket)
+
+    res.send({ basket: savedBasket })
   } catch (error) {
     next(error)
   }
 }
 
-const getBasket = async (req, res, next) => {}
+const getBasket = (req, res, next) => {}
 
-const removeItemFromBasket = async (req, res) => {}
+const removeItemFromBasket = (req, res, next) => {}
 
-const emptyBasket = async (req, res) => {}
+const emptyBasket = async (req, res, next) => {}
 
 module.exports = {
   addItemToBasket,
