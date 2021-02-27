@@ -1,8 +1,7 @@
-const fakeSessionsDB = [
+const mockDB = [
   {
     sessionID: 1,
     items: [
-      // fakeSessionsDB[i].sessionID === 10
       {
         productID: 10,
         productTitle: 'Item 1',
@@ -33,4 +32,4 @@ const fakeSessionsDB = [
   }
 ]
 
-module.exports = fakeSessionsDB
+module.exports = mockDB
