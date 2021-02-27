@@ -1,3 +1,3 @@
-const removeItem = () => { }
+const removeItem = () => {}
 
 module.exports = removeItem
