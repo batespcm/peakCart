@@ -1,5 +1,5 @@
 exports.clearBasket = require('./clearBasket')
-exports.fetchBasketFromDB = require('./DBFunctions')
+exports.fetchBasketFromDB = require('./fetchBasketFromDB')
 exports.removeItem = require('./removeItem')
-// exports.saveToMockDB = require('./DBFunctions')
+exports.saveToMockDB = require('./saveToMockDB')
 exports.addItem = require('./addItem')

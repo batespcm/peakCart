@@ -1,15 +1,16 @@
-const addItem = (currentBasket, newItem) => {
-    console.log(currentBasket, "currentBask")
-    let newBasket = {}
-    newItem.quantity = 1
-    console.log(newItem, "newItem should have a quantity")
-    if (currentBasket.productID.quantity === newItem.productID) {
-        newBasket = currentBasket
-    } else {
-        newbasket = { ...currentBasket, ...newItem }
+const addItem = (storedBasket, addedItem) => {
+  let updatedBasket
+  if (storedBasket.length === 0) {
+    updatedBasket = addedItem
+  } else {
+    for (let i = 0; i < storedBasket.length; i++) {
+      for (let j = 0; j < storedBasket.length; j++) {
+        const storedItems = storedBasket[j].items
+        updatedBasket = [...storedItems, ...addedItem]
+      }
     }
-    console.log(newBasket, "outputBasket")
-    return newBasket
+  }
+  return updatedBasket
 }
 
 module.exports = addItem
