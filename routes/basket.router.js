@@ -9,5 +9,6 @@ const {
 basketRouter.route('/additem').post(addItemToBasket)
 basketRouter.route('/removeitem').delete(removeItemFromBasket)
 basketRouter.route('/clearbasket').delete(emptyBasket)
+basketRouter.route('/:sessionID').get(getBasket)
 
 module.exports = basketRouter
