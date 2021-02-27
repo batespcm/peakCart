@@ -4,8 +4,11 @@ const fetchBasket = sessionID => {
   const userBasket = mockDB.filter(stored => {
     return stored.sessionID === sessionID
   })
-
-  return userBasket[0].items
+  if (userBasket.length === 0) {
+    return null
+  } else {
+    return userBasket[0].items
+  }
 }
 
 module.exports = fetchBasket

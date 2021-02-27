@@ -1,8 +1,7 @@
 const express = require('express')
-const apiRouter = require('./routes/api/api.router.js')
 
 const app = express()
-
+const apiRouter = require('./routes/api.router.js')
 app.use(express.json())
 
 app.use('/api', apiRouter)

@@ -9,11 +9,10 @@ const {
 const addItemToBasket = (req, res, next) => {
   try {
     const { sessionID, item } = req.body
-
     const basket = fetchBasket(sessionID)
     const updatedBasket = addItem(basket, item)
-    const savedBasket = saveBasket(sessionID, updatedBasket)
 
+    const savedBasket = saveBasket(sessionID, updatedBasket)
     res.send({ basket: savedBasket })
   } catch (error) {
     next(error)
