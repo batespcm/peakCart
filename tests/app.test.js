@@ -44,11 +44,11 @@ describe('<POST ITEM TO MICROSERVICE>', () => {
         sessionID: 3,
         item: [
           {
-            productID: 11,
-            productTitle: 'Item 1',
-            price: 11,
-            weight: 1,
-            deliveryDays: 5
+            productID: 20,
+            productTitle: 'Item 2',
+            price: 200,
+            weight: 8,
+            deliveryDays: 1
           }
         ]
       }
@@ -57,14 +57,15 @@ describe('<POST ITEM TO MICROSERVICE>', () => {
         .post('/api/basket/additem')
         .send(item)
         .then(({ body }) => {
-          expect(body.basket).toHaveLength(1)
+          console.log(body)
+          expect(body.basket[2]).toHaveLength(1)
 
-          expect(body.basket[0]).toHaveProperty('productID', 11)
-          expect(body.basket[0]).toHaveProperty('productTitle', 'Item 1')
-          expect(body.basket[0]).toHaveProperty('price', 11)
-          expect(body.basket[0]).toHaveProperty('weight', 1)
+          expect(body.basket[2]).toHaveProperty('productID', 20)
+          expect(body.basket[2]).toHaveProperty('productTitle', 'Item 2')
+          expect(body.basket[2]).toHaveProperty('price', 200)
+          expect(body.basket[2]).toHaveProperty('weight', 8)
           // expect(body.basket[0]).toHaveProperty("quantity");
-          expect(body.basket[0]).toHaveProperty('deliveryDays', 4)
+          expect(body.basket[2]).toHaveProperty('deliveryDays', 1)
         })
     })
   })
