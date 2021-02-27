@@ -89,6 +89,22 @@ describe('<DELETE ITEM TO MICROSERVICE>', () => {
   })
 })
 
+describe('<DELETE ENTIRE BASKET TO MICROSERVICE>', () => {
+  it('Takes an existing session and returns a basket with nothing in', () => {
+    const clearbasket = {
+      sessionID: 4,
+      item: {}
+    }
+
+    return request(app)
+      .delete('/api/basket/clearbasket')
+      .send(clearbasket)
+      .then(({ body }) => {
+        expect(body.basket).toHaveLength(0)
+      })
+  })
+})
+
 // tetst endpoints
 // test 404
 // test sending wrong thing - validation
