@@ -1,4 +1,3 @@
-const basketRouter = require('../routes/basket.router')
 const {
   fetchBasket,
   saveBasket,
@@ -13,7 +12,7 @@ const addItemToBasket = (req, res, next) => {
     const basket = fetchBasket(sessionID)
     const updatedBasket = addItem(basket, item)
     const savedBasket = saveBasket(sessionID, updatedBasket)
-    res.send({ basket: savedBasket })
+    res.status(200).send({ basket: savedBasket })
   } catch (error) {
     next(error)
   }
@@ -25,7 +24,7 @@ const removeItemFromBasket = (req, res, next) => {
     const basket = fetchBasket(sessionID)
     const updatedBasket = removeItem(basket, item)
     const savedBasket = saveBasket(sessionID, updatedBasket)
-    res.send({ basket: savedBasket })
+    res.status(204).send({ basket: savedBasket })
   } catch (error) {
     next(error)
   }
