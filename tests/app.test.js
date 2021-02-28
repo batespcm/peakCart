@@ -105,6 +105,16 @@ describe('<DELETE ENTIRE BASKET TO MICROSERVICE>', () => {
   })
 })
 
+describe('GET BASKET TO MICROSERVICE>', () => {
+  it('Takes a sessionID and returns a basket with nothing in', () => {
+    return request(app)
+      .get('/api/basket/6')
+      .then(({ body }) => {
+        expect(body.basket).toHaveLength(2)
+      })
+  })
+})
+
 // tetst endpoints
 // test 404
 // test sending wrong thing - validation
